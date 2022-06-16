@@ -25,7 +25,7 @@ function createWindow() {
 	mainWindow.loadURL(mazeanServer);
 
 	mainWindow.setMenu(null);
-
+	
 	let tray = new Tray(nativeImage.createFromPath(mazeanIcon));
 
 	const contextMenu = Menu.buildFromTemplate([
@@ -37,8 +37,6 @@ function createWindow() {
 	tray.setContextMenu(contextMenu);
 	tray.setToolTip("Mazean");
 	tray.setTitle("Mazean");
-
-	mainWindow.show();
 
 	// Open DevTools if it's enabled.
 
