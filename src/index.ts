@@ -28,10 +28,21 @@ function createWindow() {
 	
 	let tray = new Tray(nativeImage.createFromPath(mazeanIcon));
 
+	function setVisibility(visible: boolean) {
+		if (visible && !mainWindow.isVisible()) {
+			mainWindow.show();
+			mainWindow.webContents.setAudioMuted(false);
+		}
+		else if (!visible && mainWindow.isVisible()) {
+			mainWindow.webContents.setAudioMuted(true);
+			mainWindow.hide();
+		}
+	}
+
 	const contextMenu = Menu.buildFromTemplate([
 		{label: "Mazean", enabled: false},
 		{type: "separator"},
-		{label: "Show / Hide", click: () => {mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()}},
+		{label: "Show / Hide", click: () => {setVisibility(!mainWindow.isVisible());}},
 		{role: "quit"}
 	]);
 
