@@ -31,6 +31,7 @@ function createWindow() {
 	const contextMenu = Menu.buildFromTemplate([
 		{label: "Mazean", enabled: false},
 		{type: "separator"},
+		{label: "Show / Hide", click: () => {mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()}},
 		{role: "quit"}
 	]);
 
