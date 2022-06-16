@@ -21,18 +21,24 @@ function createWindow() {
 	});
 
 	// Load Mazean, but show an error message if it's not reachable.
+
+	mainWindow.hide();
 	
 	mainWindow.loadURL(mazeanServer);
 
 	mainWindow.setMenu(null);
 
-	let tray = new Tray(mazeanIcon);
+	setTimeout(async () => {
+		let tray = new Tray(mazeanIcon);
 
-	const contextMenu = Menu.buildFromTemplate([
-		{role: "quit"}
-	]);
+		const contextMenu = Menu.buildFromTemplate([
+			{role: "quit"}
+		]);
 
-	tray.setContextMenu(contextMenu);
+		tray.setContextMenu(contextMenu);
+
+		mainWindow.show();
+	}, 1000);
 
 	// Open DevTools if it's enabled.
 
