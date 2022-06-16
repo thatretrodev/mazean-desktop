@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { dialog, app, BrowserWindow, Menu, Tray } = require('electron');
+const { dialog, app, BrowserWindow, Menu, Tray, nativeImage } = require('electron');
 const fs = require('fs');
 const path = require('path');
 
@@ -21,24 +21,24 @@ function createWindow() {
 	});
 
 	// Load Mazean, but show an error message if it's not reachable.
-
-	mainWindow.hide();
 	
 	mainWindow.loadURL(mazeanServer);
 
 	mainWindow.setMenu(null);
 
-	let tray = new Tray(mazeanIcon);
+	let tray = new Tray(nativeImage.createFromPath(mazeanIcon));
 
-	setTimeout(async () => {
-		const contextMenu = Menu.buildFromTemplate([
-			{role: "quit"}
-		]);
+	const contextMenu = Menu.buildFromTemplate([
+		{label: "Mazean", enabled: false},
+		{type: "separator"},
+		{role: "quit"}
+	]);
 
-		tray.setContextMenu(contextMenu);
+	tray.setContextMenu(contextMenu);
+	tray.setToolTip("Mazean");
+	tray.setTitle("Mazean");
 
-		mainWindow.show();
-	}, 1000);
+	mainWindow.show();
 
 	// Open DevTools if it's enabled.
 
