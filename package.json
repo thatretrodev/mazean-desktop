@@ -5,6 +5,7 @@
   "main": "app/index.js",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --minify --platform=node --external:electron --outfile=app/index.js",
+    "start": "electron .",
     "dist": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
