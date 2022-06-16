@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"types": ["node"],
+		"noEmit": true
+	},
+	"files": [
+		"src/index.ts"
+	]
+}
