@@ -28,9 +28,9 @@ function createWindow() {
 
 	mainWindow.setMenu(null);
 
-	setTimeout(async () => {
-		let tray = new Tray(mazeanIcon);
+	let tray = new Tray(mazeanIcon);
 
+	setTimeout(async () => {
 		const contextMenu = Menu.buildFromTemplate([
 			{role: "quit"}
 		]);
