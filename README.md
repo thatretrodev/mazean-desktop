@@ -1,2 +1,2 @@
 # mazean-desktop
-A desktop client for mazean.com
+A desktop client for https://mazean.com
