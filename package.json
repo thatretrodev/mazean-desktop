@@ -26,7 +26,7 @@
   "homepage": "https://github.com/thatretrodev/mazean-desktop#readme",
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "electron": "^19.0.4",
+    "electron": "^19.0.8",
     "esbuild": "^0.14.43",
     "typescript": "^4.7.3"
   }
